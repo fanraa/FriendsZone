@@ -63,9 +63,11 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+/* Bagian ini sudah diperbaiki agar ukuran box-sizing aman di HP */
 @layer base {
-  * {
-    @apply border-[var(--border)];
+  *, ::before, ::after {
+    box-sizing: border-box;
+    border-color: var(--border);
   }
 }
 
@@ -102,7 +104,6 @@ body::-webkit-scrollbar {
   @apply text-current;
 }
 
-/* Hide scrollbar for carousel but allow scrolling */
 /* Glass Dropdowns for Pickers */
 .glass-dropdown {
   box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.1), 0 20px 40px -30px rgba(0, 0, 0, 0.15);
